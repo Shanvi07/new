@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Twitter</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="w-full max-w-sm bg-white p-6 rounded-lg shadow-md">
+        <!-- Logo -->
+        <div class="text-center mb-6">
+            <h1 class="text-4xl font-bold text-blue-500">
+                <i class="ri-twitter-fill text-5xl align-middle"></i> Twitter
+            </h1>
+        </div>
+        <% if(error) { %>
+            <small class="text-red-500">
+                <%= error %>
+            </small>
+            <% } %>
+        <!-- Login Form -->
+        <form autocomplete="off" action="/login" method="POST">
+            <div class="mb-4">
+                <label for="username" class="block text-sm font-semibold text-gray-700">Username</label>
+                <input type="text" id="username" name="username" class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter your username">
+            </div>
+
+            <div class="mb-6">
+                <label for="password" class="block text-sm font-semibold text-gray-700">Password</label>
+                <input type="password" id="password" name="password" class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter your password">
+            </div>
+
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center">
+                    <input type="checkbox" id="remember" class="mr-2 rounded" />
+                    <label for="remember" class="text-sm text-gray-600">Remember me</label>
+                </div>
+                <a href="#" class="text-sm text-blue-500 hover:text-blue-700">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                Log in
+            </button>
+        </form>
+
+        <!-- Sign up link -->
+        <div class="mt-6 text-center">
+            <p class="text-sm text-gray-600">Don't have an account? <a href="register" class="text-blue-500 hover:text-blue-700">Sign up</a></p>
+        </div>
+    </div>
+    <script>
+        const inputs = document.querySelectorAll('input');
+        const button = document.querySelector('button');
+
+        function checkInputs() {
+            const allFilled = Array.from(inputs).every(input => input.value.trim().length > 0);
+            button.disabled = !allFilled;
+            button.classList.toggle('opacity-50', !allFilled);
+            button.classList.toggle('cursor-not-allowed', !allFilled);
+            button.classList.toggle('bg-blue-500', allFilled);
+            button.classList.toggle('bg-gray-700', !allFilled);
+        }
+
+        inputs.forEach(input => {
+            input.addEventListener('input', checkInputs);
+        });
+    </script>
+</body>
+
+</html>

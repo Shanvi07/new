@@ -1,0 +1,57 @@
+<%- include('./partials/header.ejs') %>
+   
+
+
+<!-- Tabs -->
+
+
+<!-- Feed Section -->
+
+    <!-- Tweets Feed -->
+    <% tweets.reverse().forEach(function(tweet){ %>
+        <div class="space-y-4 bg-blue-50 p-4 rounded-lg">
+            <div class="flex items-center space-x-3">
+                <img src="https://via.placeholder.com/40" alt="Profile" class="w-10 h-10 rounded-full" />
+                <div>
+                    <p class="text-sm">
+                        <span class="font-bold text-blue-900">
+                            <%= tweet.username %>
+                        </span>
+                        <i class="ri-check-fill text-blue-500"></i>
+                        <span class="text-blue-600">@<%= tweet.username %></span>
+                    </p>
+                </div>
+                <i class="ri-more-2-line ml-auto text-blue-400 hover:text-blue-700 cursor-pointer"></i>
+            </div>
+            <p class="text-sm text-blue-900">
+                <%= tweet.tweet %>
+            </p>
+            <div class="flex items-center text-blue-400 text-sm gap-x-10">
+                <div class="flex items-center space-x-1 hover:text-blue-600 cursor-pointer">
+                    <i class="ri-chat-3-line"></i>
+                    <span>22K</span>
+                </div>
+                <div class="flex items-center space-x-1 hover:text-blue-600 cursor-pointer">
+                    <i class="ri-repeat-line"></i>
+                    <span>81K</span>
+                </div>
+                <div class="flex items-center space-x-1 hover:text-blue-600 cursor-pointer">
+                    <i class="ri-heart-line"></i>
+                    <span>914K</span>
+                </div>
+                <div class="flex items-center space-x-1 hover:text-blue-600 cursor-pointer">
+                    <i class="ri-bar-chart-box-line"></i>
+                    <span>84M</span>
+                </div>
+            </div>
+        </div>
+    <% }) %>
+</div>
+
+<!-- Floating Action Button -->
+<a href="/createpost"
+    class="fixed bottom-20 right-6 bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-600 transition-colors duration-200">
+    <i class="ri-add-line text-2xl"></i>
+</a>
+
+<%- include('partials/footer') %>

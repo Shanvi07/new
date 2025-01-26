@@ -1,0 +1,51 @@
+<%- include('./partials/header.ejs') %>
+
+<!-- Banner -->
+<div class="relative">
+  <div class="h-48 bg-gradient-to-r from-blue-500 to-blue-400"></div>
+  <img src="https://via.placeholder.com/120" alt="Profile" class="w-28 h-28 rounded-full border-4 border-white absolute -bottom-8 left-6">
+</div>
+
+<!-- Profile Details -->
+<div class="bg-white p-6 shadow-md">
+  <h2 class="text-2xl font-bold"><%= user.username %></h2>
+  <p class="text-gray-500">@<%=user.username%></p>
+  <p class="mt-2 text-gray-700">🎓 3rd Year B.Tech (CSE) | 💻 Dev & DSA Enthusiast | 🌱 Building @LeafySoles</p>
+  <div class="flex space-x-6 mt-4 text-gray-500">
+    <span><i class="ri-map-pin-line"></i> India</span>
+    <span><i class="ri-calendar-line"></i> Joined June 2021</span>
+  </div>
+  <div class="flex space-x-6 mt-4">
+    <span class="font-bold">150</span> <span class="text-gray-500">Following</span>
+    <span class="font-bold">200</span> <span class="text-gray-500">Followers</span>
+  </div>
+  <button class="bg-blue-500 text-white px-6 py-2 mt-4 rounded-full hover:bg-blue-600">
+    Follow
+  </button>
+</div>
+
+<!-- Tweets Section -->
+<div class="mt-6">
+  <div class="bg-white p-4 shadow-md mb-4">
+    <h3 class="text-lg font-bold">Pinned Tweet</h3>
+    <p class="text-gray-700 mt-2">🚀 Excited to lead the @EurekaPitchComp with my amazing E-Cell team! 🌟 #Entrepreneurship</p>
+  </div>
+
+  <!-- Example Tweet -->
+  <div class="bg-white p-4 shadow-md mb-4">
+    <div class="flex items-start">
+      <img src="https://via.placeholder.com/40" alt="Avatar" class="w-10 h-10 rounded-full">
+      <div class="ml-3">
+        <h4 class="font-bold">Shanvi Pandey <span class="text-gray-500"><%= user.username %>· 1h</span></h4>
+        <p class="text-gray-700 mt-1">Excited to work on my project 'Leafy Soles'—bringing eco-friendly shoes to life! 🌱</p>
+        <div class="flex space-x-6 text-gray-500 mt-2">
+          <i class="ri-heart-3-line"></i>
+          <i class="ri-repeat-line"></i>
+          <i class="ri-share-forward-line"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
